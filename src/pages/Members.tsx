@@ -16,13 +16,15 @@ export default function Members() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div className="space-y-6" id="members-page-root">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-border/50 pb-4">
         <div>
-          <h1 className="text-2xl font-bold">👨‍👩‍👧‍👦 পরিবারের সদস্য</h1>
+          <h1 className="text-2xl font-bold tracking-tight">👨‍👩‍👧‍👦 পরিবারের সদস্য</h1>
           <p className="text-muted-foreground text-sm mt-1">আমাদের পরিবারের সকল সদস্যের তালিকা</p>
         </div>
-        <AddMemberModal onSuccess={refetch} />
+        <div className="flex-shrink-0" id="add-member-button-wrapper">
+          <AddMemberModal onSuccess={refetch} />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

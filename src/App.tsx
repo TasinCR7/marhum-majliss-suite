@@ -17,11 +17,12 @@ import Vault from "@/pages/Vault";
 import Notices from "@/pages/Notices";
 import Voting from "@/pages/Voting";
 import Events from "@/pages/Events";
-import NotFound from "./pages/NotFound.tsx";
+import NotFound from "./pages/NotFound";
 import Login from "@/pages/Login"; // New login page
 import ProtectedRoute from "@/components/auth/ProtectedRoute"; // Route protector
 import { AuthProvider } from "@/context/AuthContext"; // Auth context
 
+// Build Version: 1.0.1 - Force Sync
 const queryClient = new QueryClient();
 
 const App = () => (

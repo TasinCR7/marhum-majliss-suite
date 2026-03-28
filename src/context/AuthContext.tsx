@@ -17,8 +17,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('AuthContext: Initializing session check...');
     // Initial fetch
     supabase.auth.getSession().then(({ data: { session } }) => {
+      console.log('AuthContext: Session fetched:', session ? 'User logged in' : 'No user');
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
@@ -26,6 +28,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     // Listen for changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      console.log('AuthContext: Auth state changed:', _event, session ? 'User active' : 'No user');
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);

@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 
 export default function AppLayout() {
   const { user, signOut } = useAuth();
+  console.log('AppLayout: Rendering with user:', user?.email);
   
   const handleLogout = async () => {
     try {
@@ -19,9 +20,9 @@ export default function AppLayout() {
   return (
     <div className="min-h-screen bg-background">
       <AppSidebar />
-      <div className="ml-[260px] transition-all duration-300">
+      <div className="ml-[260px] transition-all duration-300 relative">
         {/* Top bar */}
-        <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-border px-6 py-3 flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/80 px-6 py-3 flex items-center justify-between shadow-sm">
           <div />
           <div className="flex items-center gap-4">
             <button className="relative p-2 rounded-lg hover:bg-muted transition-colors">
